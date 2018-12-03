@@ -1,6 +1,5 @@
 ---
 title: Hello World
-layout: post
 ---
 
 My first post on my new blog based on github pages.
