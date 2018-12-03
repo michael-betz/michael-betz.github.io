@@ -1,7 +1,6 @@
 ---
 title: Hello World
 layout: post
-comments: true
 ---
 
 My first post on my new blog based on github pages.
