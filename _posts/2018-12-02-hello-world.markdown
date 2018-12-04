@@ -1,5 +1,6 @@
 ---
 title: Hello World
+comments: false
 ---
 
 My first post on my new blog based on github pages.
