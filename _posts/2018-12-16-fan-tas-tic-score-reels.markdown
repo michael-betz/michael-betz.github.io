@@ -19,7 +19,7 @@ left select the I2C address (0x20 - 0x27).
 
 ![inp_board_back]({{ site.baseurl }}/uploads/fan/inp_board_back.jpg)
 
-The the `PCF8574` IO extension chip is on the backside of the board.
+The `PCF8574` IO extension chip is on the backside of the board.
 
 ## The output extension board
 This board provides 8 open-drain output channels. Its main goal is to drive
