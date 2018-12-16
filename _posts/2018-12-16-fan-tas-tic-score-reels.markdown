@@ -2,7 +2,9 @@
 title: Fan-Tas-Tic score reels
 ---
 The 16 score reels of my electro-mechanical (EM) pinball machine are a good
-test for the in- and output extension boards I've been working on recently.
+test for the
+[in- and output extension boards](https://github.com/yetifrisstlama/Fan-Tas-Tic-PCB#input-extension-board)
+I've been working on recently.
 
 ## The input extension board
 This is a really minimalistic board providing 8 additional digital input channels.
@@ -55,14 +57,14 @@ amount of money you have inserted.
 
 ![reels_old]({{ site.baseurl }}/uploads/fan/reels_old.jpg)
 
-Looking at it from its back, that's how its guts used to look like when it was
-still in its original purely electro-mechanical configuration.
+From the back, that's how its original guts used to look like.
+Everything is purely electro-mechanical and driven by relays and rotating
+commutators.
 
 Some things to note
-  * Cotton insulation on all wires. Smells like fresh laundry when you
-    solder them
-  * By plugging in pins into specific plugs some configuration was possible,
-    like how many balls per play, or at which score to get an extra ball ...
+  * Cotton insulation on all wires. Soldering them smells like fresh laundry :D
+  * By plugging pins into specific sockets, configuration was possible.
+    How many balls per play, or at which score to get an extra ball ...
   * Filament light bulbs poke through the wood which get pretty hot
 
 I removed and cleaned up all of it. The lights have been replaced by a WS2811
@@ -94,14 +96,16 @@ coils:
         default_pulse_power: 1.0
 ```
 
-Then, in true OOP fashion, define a score reel with them
+Then, in true OOP fashion, combine them to get a score reel. With the
+current setting for `repeat_pulse_time` I get up to 10 pulses per second.
+Reseting the reels sounds like a machine gun!
 
 ```yaml
 score_reels:
     score_p1_1:
         coil_inc: c_score_p1_1
-        repeat_pulse_time: 100
         switch_0: s_score_p1_1
+        repeat_pulse_time: 100
 ```
 
 Combine several reels to get a score counter and connect it to an actual player
