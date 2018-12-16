@@ -1,6 +1,5 @@
 ---
 title: Fan-Tas-Tic score reels
-layout: post
 ---
 The 16 score reels of my electro-mechanical (EM) pinball machine are a good
 test for the in- and output extension boards I've been working on recently.
