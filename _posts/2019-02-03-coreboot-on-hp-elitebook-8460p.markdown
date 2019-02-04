@@ -1,9 +1,8 @@
 ---
 title: Coreboot on HP Elitebook 8460p
-layout: post
 ---
 
-My experience of getting the free and open source BIOS running on my slightly outdated but still much beloved laptop.
+My experience in getting the free and open source BIOS running on my slightly outdated but still much beloved laptop.
 
 # Hardware for flashing
 Even though I found [evidence](https://www.coreboot.org/Board:hp/8770w#Flashing) that the flash chip can be read and even written from a running machine, that didn't work out for me.
