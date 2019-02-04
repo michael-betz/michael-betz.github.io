@@ -13,15 +13,15 @@ Instead I had great success using a [Bus pirate](https://en.wikipedia.org/wiki/B
 
 These really useful little clips are available on Aliexpress / eBay.
 
-Note that reading / writing the flash in circuit like that is tricky and a bit dangerous.
+Note that reading / writing the flash in-circuit like this is tricky and dangerous.
 
 ![bios schematic]({{ site.baseurl }}/uploads/bios_schem.png)
 
-The MISO and MOSI lines on the Bus Pirate directly attach to pin 2 and 5 of the chip. The SS line connects to pin 1. I also connect pin 8 to the 3.3 V supply of the Bus Pirate. 
+Here is how I wired it up. The MISO and MOSI lines on the Bus Pirate directly attach to pin 2 and 5 of the flash chip. The SS line connects to pin 1. I also connect pin 8 to the 3.3 V supply of the Bus Pirate and pin 4 to GND. 
 
 ___!!! double check that there are no shorts from 3.3 V to GND before going ahead !!!___
 
-On my first try I noticed the Bus Pirate 3.3 V supply was pulled down to ~ 1.7 V when I enabled it. This is a power sequencing problem. I worked around it like that
+On my first try I noticed that the Bus Pirates 3.3 V supply was pulled down to < 1.7 V when I enabled it. This is a power sequencing problem. I found a workaround which involves powering up the notebook. Be super careful when doing this.
 
   1. While the Bus Pirate is attached, insert the laptop battery or power cord. This will provide power to the flash chip for ~10 seconds
   2. Within these 10 seconds, start the read / write operation with `flashrom`. Once started, the 3.3 V supply of the Bus Pirate will supply the flash chip
@@ -83,7 +83,7 @@ sudo echo 1 > /sys/devices/pci0000:00/0000:00:01.0/rom
 sudo cp /sys/devices/pci0000:00/0000:00:01.0/rom {COREBOOT_DIR}/pci1002,6760.rom
 ```
 
-Add the file to `make menuconfig` and customize the PCI vendor and device IDs
+Add the file to `make menuconfig` and enter the PCI vendor and device IDs
 
 ```
 VGA BIOS  --->
@@ -100,7 +100,7 @@ I've added all of them. They work just fine.
 # Issues and workarounds
   * Windows 10 gets stuck in a blue-screen during boot and fails with an `ACPI_ERROR`. I fixed the problem by deleting my windows partition :D
 
-  * Debain logs showed errors related to a not responding Intel management engine. That's actually not an error but a feature. Got rid of the error by adding the following to `/etc/modprobe.d/blacklist.conf`
+  * Debain logs show errors related to a non responding Intel management engine. That's actually not an error but a feature. Got rid of the error by adding the following to `/etc/modprobe.d/blacklist.conf`
 
   ```bash
   blacklist mei
@@ -109,6 +109,9 @@ I've added all of them. They work just fine.
 
 # Ressources
 [HP Elitebook 8460p Schematics](https://duckduckgo.com/?q=%22CLASH+UMA+MV+BUILD+2011.02.14%22&t=hi&ia=web)
+
 [Coreboot instructions specific for Elitebooks](https://www.coreboot.org/HP_Elitebook)
+
 [Sandybridge tutorial](https://www.coreboot.org/Intel_Sandybridge_Build_Tutorial)
+
 [Extracting the video bios](https://www.coreboot.org/VGA_support#Retrieval_via_Linux_kernel)
