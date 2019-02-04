@@ -95,7 +95,7 @@ VGA BIOS  --->
 I had to disable `libgfxinit` and rely on `vgabios` to initialize the graphics. Also I'm using `VGA text mode`, the graphical framebuffer didn't work.
 
 ## Payloads
-I've added all of them. They work just fine.
+I'm using the `SeaBIOS` payload. I've also added all secondary payloads. They work just fine. SeaBios boots into Grub2 on disk.
 
 # Issues and workarounds
   * Windows 10 gets stuck in a blue-screen during boot and fails with an `ACPI_ERROR`. I fixed the problem by deleting my windows partition :D
