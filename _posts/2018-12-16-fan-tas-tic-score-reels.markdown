@@ -124,3 +124,10 @@ notices and corrects if a step was missing.
 
 The mechanical clicking of the wheels really adds something to the game
 and feels strangely satisfying.
+
+# Update 04/2019
+I got all 16 channels working reliably now. One I2C channel has a chain of 2 input boards and 2 output boards connected to it. Initially I had some connection issues. Some conformal coating accidentally got on the contacts of the address-select jumpers. So one of the boards had a wrong address and took the whole bus down. After tracking down and fixing this problem everything has been working quite smoothly since.
+
+Here's how Mission Pinball resets the score wheels after starting a new game (Headphone warning!):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gDIVlxMAEAg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
