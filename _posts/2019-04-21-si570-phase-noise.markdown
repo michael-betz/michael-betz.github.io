@@ -13,7 +13,7 @@ Here's a phase noise measurement at $f_/mathrm{out}$ = 500 MHz, in comparison to
 
 Integrated jitter (from 1 Hz to 10 MHz) is shown in the legend on the top right.
 
-![Si570 phase noise at 500 MHz]({{ site.baseurl }}/uploads/si570_pn.png)
+[![Si570 phase noise at 500 MHz]({{site.baseurl}}/uploads/si570_pn.png)]({{site.baseurl}}/uploads/si570_pn.png)
 
 The measurements were done on a R&S FSWP signal source analyzer.
 
