@@ -15,10 +15,10 @@ I bought the [LimeSDR mini](https://www.crowdsupply.com/lime-micro/limesdr-mini)
 ### Using gqrx
 I like its simplicity and usefulness for exploring the radio spectrum.
 
-![fm_radio]({{ site.baseurl }}/uploads/lime/fm_radio.png)
+[![fm_radio]({{ site.baseurl }}/uploads/lime/fm_radio.png)]({{ site.baseurl }}/uploads/lime/fm_radio.png)
 Here's some strong FM radio stations. Listening-in from gqrx is as as simple as clicking on them.
 
-![915MHz]({{ site.baseurl }}/uploads/lime/915MHz.png)
+[![915MHz]({{ site.baseurl }}/uploads/lime/915MHz.png)]({{ site.baseurl }}/uploads/lime/915MHz.png)
 Here's many very short data transmissions around 915 MHz. Most look very similar in the spectrogram. I haven't found out yet what their purpose is or even which radio standard they follow. My goal for now is to discover and decode some LORA transmissions in my area.
 
 I would like to use gqrx as a tuner software, where I can select a center frequency and bandwidth and it exports a live data stream, either as UDP packets or through stdout, for further processing in gnuradio or baudline for example. I figured the demodulated audio stream can be sent over a UDP socket. Selecting `Raw I/Q` as demodulating mode, I can store the I and Q signals as 2 channel .wav file to disk. However the UDP stream only contains the `I` channel and hence discards the negative half of the spectrum. I [forked and patched](https://github.com/yetifrisstlama/gqrx) gqrx to get `Raw I/Q` mode working over UDP.
@@ -57,7 +57,7 @@ which will tune to 915 MHz and sample with 15 MHz bandwidth. Tune the 3 gain sta
 ### Building an Antenna
 An [antenna](https://m0ukd.com/calculators/quarter-wave-ground-plane-antenna-calculator/) for 915 MHz to search for LORA signals. It's built from a SMA male connector and some brass wires / tubing. The improved signal level compared to sticking a random wire in the SMA port is remarkable :)
 
-![diploe_915MHz]({{ site.baseurl }}/uploads/lime/diploe_915MHz.jpg)
+[![diploe_915MHz]({{ site.baseurl }}/uploads/lime/diploe_915MHz.jpg)]({{ site.baseurl }}/uploads/lime/diploe_915MHz.jpg)
 
 
 ## Workflow for demodulating signals
