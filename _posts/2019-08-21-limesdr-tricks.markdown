@@ -6,7 +6,7 @@ I bought the [LimeSDR mini](https://www.crowdsupply.com/lime-micro/limesdr-mini)
 ## Things I have done
 
   * 3D printed a [case](https://www.thingiverse.com/thing:2872421). Protects the PCB and sensitive components. However the board gets uncomfortably hot! If I would do it again I would look for something which integrates a small heatsink / fan.
-  * Had a bit of a struggle building and installing [Gnuradio 3.8](https://github.com/gnuradio/gnuradio/releases/tag/v3.8.0.0) from source (the latest of the latest) only to realize [it does not support LimeSDR](https://github.com/myriadrf/gr-limesdr/issues/44)
+  * Had a bit of a struggle building and installing [Gnuradio 3.8](https://github.com/gnuradio/gnuradio/releases/tag/v3.8.0.0) from source (the latest and greatest) only to realize [it does not support LimeSDR](https://github.com/myriadrf/gr-limesdr/issues/44). So I'm back on the version form `apt get`
   * Installed `Lime Suite`, `SoapySDR` and [GQRX](http://gqrx.dk/), which is the perfect combination to get started. Here's the order of things to try:
     * `$ LimeQuickTest` should find the device and test it
     * `$ SoapySDRUtil --probe` should also find the LimeSDR and print its capabilities
