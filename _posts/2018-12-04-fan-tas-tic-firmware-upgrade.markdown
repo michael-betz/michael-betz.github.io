@@ -193,5 +193,16 @@ The write transactions are now visible on the logic analyzer as well.
 
 <script src="{{ site.baseurl }}/uploads/mermaid.min.js"></script>
 <script>
-    mermaid.initialize({theme: 'dark', flowchart: {curve: 'basis'}});
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        flowchart: {
+            curve: 'basis',
+            useMaxWidth: true
+        }
+    });
+    window.mermaid.init(
+        undefined, 
+        document.querySelectorAll('.language-mermaid')
+    );
 </script>

@@ -23,7 +23,7 @@ Here's an example module running from a tiny solar cell and storing enough charg
 
 Communication happens through the `base station`, which is just a raspberry pi with another nRF module strapped on top of it.
 
-<div class="mermaid">
+```mermaid
 graph TD
 subgraph base station
    A[raspberry pi] -- SPI --- B
@@ -40,7 +40,7 @@ subgraph humidity sensor
   D --- F
   D -- SPI --- G
 end
-</div>
+```
 
 ## How low can you go
 How much is low power ... well let's have a look ...
@@ -69,6 +69,13 @@ The power LED and voltage regulator need to go to reduce the standby current. Th
     mermaid.initialize({
         startOnLoad: true,
         theme: 'dark',
-        flowchart: {curve: 'basis'}
+        flowchart: {
+            curve: 'basis',
+            useMaxWidth: true
+        }
     });
+    window.mermaid.init(
+        undefined, 
+        document.querySelectorAll('.language-mermaid')
+    );
 </script>
