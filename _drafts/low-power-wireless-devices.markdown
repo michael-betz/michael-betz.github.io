@@ -35,7 +35,7 @@ subgraph humidity sensor
   D[arduino]
   E[solar cell]
   F[battery]
-  G(fa:fa-broadcast-tower nRF24)
+  G("fa:fa-broadcast-tower nRF24")
   D --- E
   D --- F
   D -- SPI --- G
@@ -71,7 +71,8 @@ The power LED and voltage regulator need to go to reduce the standby current. Th
         theme: 'dark',
         flowchart: {
             curve: 'basis',
-            useMaxWidth: true
+            useMaxWidth: true,
+            htmlLabels: true
         }
     });
     window.mermaid.init(
