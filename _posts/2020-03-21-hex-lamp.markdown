@@ -109,6 +109,8 @@ The color value, color intensity and brightness of each LED are derived from 3 i
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wreXJGpZQVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+# [:floppy_disk: source files on github](https://github.com/yetifrisstlama/hex_lamp)
+
 [0]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20191208_143929.jpg
 [1]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20191228_134735.jpg
 [2]: {{ site.baseurl }}/uploads/hex_lamp/planning.jpg
