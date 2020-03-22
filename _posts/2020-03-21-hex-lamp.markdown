@@ -70,11 +70,14 @@ __!!! Note that the template only fits 1/4" material thickness !!!__
 
 Laser cutting on the 60 W machine at [Jacobs Hall](https://jacobsinstitute.berkeley.edu/) went pretty smoothly. I prepared 3 different hex and 2 square designs. The hex ones took 15 - 30 min to cut each. The squares ~ 5 minutes. I had to substantially increase the cutting power above the preset as the inner layers of the plywood were of low quality and cut poorly.
 
-To chamfer the edges I used the table-saw of the Jacobs wood-shop, tilting the blade to the right angle.
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/GMwXp55kbyk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
+To chamfer the edges I used the table-saw at the Jacobs wood-shop, tilting the blade at an angle.
 
 [![IMG_20200228_173518][3]][3]
 
-A first test-fit looks promising.
+A first test-fit looks very promising :grin:
 
 [![IMG_20200228_174058][4]][4]
 
@@ -104,6 +107,7 @@ The strips are driven by an `ESP8266` module. The USB connector is for power onl
 
 [![IMG_20200318_232831][11]][11]
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wreXJGpZQVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [0]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20191208_143929.jpg
 [1]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20191228_134735.jpg
