@@ -1,0 +1,122 @@
+---
+title: hex_lamp
+---
+The inspiration for this project came from a visit to the Oakland Museum. They had a temporary *burning man* exhibit featuring these huge, beautiful lamps made by [__HYBYCOZO__](https://www.hybycozo.com/).
+
+[![Inspirational lamp at Oakland Museum][0]][0]
+
+I wanted to create a similar but smaller lamp using plywood, laser-cutter, and 3D printed corner-pieces to join everything together. I was excited to learn about the geometry, the symmetries of the artwork and how different LED lights create different kinds of shadow effects.
+
+# :memo: Design
+I found some info about the [geometry](https://en.wikipedia.org/wiki/Truncated_octahedron):
+
+  * truncated octahedron
+  * 6 square shaped pieces
+  * 8 hex shaped pieces of same side-length
+  * 24 joiner pieces
+  * the square only touches hex
+  * hex alternately touches hex and square
+  * angle between hex - hex = `arccos(−1 / 3)` = 109.471°
+  * angle between hex - square = `arccos(−1 / sqrt(3))` = 125.264°
+
+and started modeling the shape in OpenScad to better understand how the pieces will fit together.
+
+[![Material thickness exaggerated][12]][12]
+
+When building this from material of non-finite thickness, 2 things need to be taken care of:
+  * The edges need to be cut at half of the angles mentioned above. The angle needs to be chosen depending on which pieces touch.
+  * When looking at the shape from the outside, the thicker the material, the more the mounting holes appear to be shifted towards the center of the face. This is because they are aligned with the inside edge, which is where the corner-piece will slide in.
+
+Some `intersect` operations later I had a good prototype for a corner-piece.
+
+[![Openscad][13]][13]
+
+The pins are shaped to be springy for easy insertion into the mounting holes. If more stability is required, a self tapping screw can be inserted trough the middle of the pin to clamp it into place. Some things I noticed:
+
+  * The connection __and the 3D printed part itself__ become extremely strong after inserting the screw. I could not pull it apart from a wooden plate by hand. It works similarly to a [wall plug](https://en.wikipedia.org/wiki/Wall_plug).
+  * It's a single use operation. Removing the screw would usually damage the part.
+  * The clamping screw turned out to be overkill for this project.
+
+3 iterations with the 3D printer later I was convinced I had a good joiner design and could go ahead.
+
+[![3D printed][1]][1]
+
+Printing time is about *10 minutes* for one or *2 hours* for 12 pieces.
+
+# :paintbrush: Artwork
+I used OpenScad to export the square and hex outlines and added the artwork in Inkscape. I made heavy use of the `tiled clones` feature and learned some things about it:
+
+  * Use `P3`, `P6` or `P6M` symmetry.
+  * Apply `tiled clones` to a __group__ of objects. The group can be entered and more objects can be added later.
+  * After applying `tiled clones` enter the group and move stuff around. Absolute position matters.
+  * Use `Layers` to keep the original separate from the clones for easier editing.
+
+[![Inkscape patterns][14]][14]
+
+In Inkscape, each line has a finite thickness, which is not laser-cutter compatible. We need the outline of the shape, rendered with an infinitely thin line. I failed at exporting a clean `.dxf` file directly from Inkscape. Instead I came up with this horrible workaround which gave good results:
+  
+  * Export the black and white artwork as `.png` at extremely high resolution
+  * Import the bitmap into a new Inkscape document
+  * Path --> Trace Bitmap
+  * Export the path as `.dxf`
+
+[![Paper template planning][2]][2]
+
+I recommend printing out paper templates, which are helpful to see how things fit together and to plan for the material usage. I used 1/4" plywood, leftovers from a [previous project](http://yetifrisstlama.blogspot.com/2017/09/fan-tas-tic-pinball-part-8-led-display.html). 
+
+__!!! Note that the template only fits 1/4" material thickness !!!__
+
+# :hammer_and_pick: Fabrication
+
+Laser cutting on the 60 W machine at [Jacobs Hall](https://jacobsinstitute.berkeley.edu/) went pretty smoothly. I prepared 3 different hex and 2 square designs. The hex ones took 15 - 30 min to cut each. The squares ~ 5 minutes. I had to substantially increase the cutting power above the preset as the inner layers of the plywood were of low quality and cut poorly.
+
+To chamfer the edges I used the table-saw of the Jacobs wood-shop, tilting the blade to the right angle.
+
+[![IMG_20200228_173518][3]][3]
+
+A first test-fit looks promising.
+
+[![IMG_20200228_174058][4]][4]
+
+[![IMG_20200228_175304][5]][5]
+
+I finished each piece by sanding and applying a matte black spray paint on the outside. The inside stays natural to better reflect light.
+
+[![IMG_20200301_113647][6]][6]
+
+# :candle: Illumination
+My ultimate goal would be single high power RGBW LED, mounted off center on a slowly rotating circuit board. Powered by slip rings.
+Unfortunately I haven't found a motor yet which is cheap, silent and can rotate very slowly. So this idea is on hold.
+
+For now I'm sticking to a simpler solution: WS2812 LED strips formed into a spherical shape and suspended by some brass wire.
+
+[![The electronics inside][10]][10]
+
+The strips are driven by an `ESP8266` module. The USB connector is for power only. Programming happens through the pin header with a [TTL-232R-3V3](https://octopart.com/ttl-232r-3v3-ftdi-5416714) serial cable. The 2 diodes drop the 5 V from USB to ~3.3 V which the ESP can handle.
+
+# :heart_eyes: Results 
+
+[![IMG_20200315_213228][7]][7]
+
+[![IMG_20200315_213407][8]][8]
+
+[![IMG_20200315_213414][9]][9]
+
+[![IMG_20200318_232831][11]][11]
+
+
+[0]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20191208_143929.jpg
+[1]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20191228_134735.jpg
+[2]: {{ site.baseurl }}/uploads/hex_lamp/planning.jpg
+[3]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200228_173518.jpg
+[4]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200228_174058.jpg
+[5]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200228_175304.jpg
+[6]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200301_113647.jpg
+[7]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200315_213228.jpg
+[8]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200315_213407.jpg
+[9]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200315_213414.jpg
+[10]: {{ site.baseurl }}/uploads/hex_lamp/electronics.jpg
+[11]: {{ site.baseurl }}/uploads/hex_lamp/IMG_20200318_232831.jpg
+[12]: {{ site.baseurl }}/uploads/hex_lamp/os2.png
+[13]: {{ site.baseurl }}/uploads/hex_lamp/os3.png
+[14]: {{ site.baseurl }}/uploads/hex_lamp/ink0.png
